@@ -17,20 +17,26 @@ public class BostonNumber {
             m = m / 10;
         }
 
-        int i = 2;
-        while (n > 0 && i <= n){
-            i = 2;
-            while (n % i != 0){
-                i++;
+        int k;
+        if(n != 5 && n != 7) {
+            int i = 4;
+            while (n > 0 && i <= n) {
+                i = 2;
+                while (n % i != 0) {
+                    i++;
+                }
+                if (n % i == 0) {
+                    k = i;
+                    while (i > 0) {
+                        s_fact = s_fact + i % 10;
+                        i = i / 10;
+                    }
+                    n = n / k;
+                }
             }
-            if (n % i == 0) {
-                   s_fact = s_fact + i;
-                    n = n / i;
-            }
-
         }
         if(s_digit == s_fact){
-          System.out.println(1);
+            System.out.println(1);
         }else {
             System.out.println(0);
         }
